@@ -88,7 +88,7 @@
 
 ## ⏯️ 動作確認動画
 
-[動作確認動画]([url](https://youtu.be/lr4rlFkvnt4))
+[動作確認動画](https://youtu.be/lr4rlFkvnt4)
 
 ---
 
