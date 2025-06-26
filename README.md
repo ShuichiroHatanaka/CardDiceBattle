@@ -86,9 +86,9 @@
 
 ---
 
-## ⏯️ 動作確認環境
+## ⏯️ 動作確認動画
 
-[https://youtu.be/lr4rlFkvnt4](url)
+[動作確認動画]([url](https://youtu.be/lr4rlFkvnt4))
 
 ---
 
