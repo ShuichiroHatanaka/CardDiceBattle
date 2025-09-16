@@ -183,8 +183,10 @@ void Util::LoadBattleCard(int ID,int Party) {
 }
 
 void Util::Menu() {
-	DrawBox(220, 240, 420, 400, Black, TRUE);
-	DrawBox(223, 243, 417, 397, Cr, FALSE);
+	int width = 200, hight = 160;
+	int x = 220, y = 240;
+	DrawBox(x, y, x + width, y + hight, Black, TRUE);
+	DrawBox(x + 3, y + 3, x + width - 3, y + hight - 3, Cr, FALSE);
 	for (int i = 0; i < 4; i++) {
 		if (i == SelectMenuCommand) {
 			Select = 20;

@@ -21,6 +21,7 @@ int startTime = GetNowCount();//開始時刻を得る
 
 // プログラムは WinMain から始まります
 int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int) {
+	//SetGraphMode(1920, 1080, 32);
 
 	ChangeWindowMode(TRUE);		//WindowModeかFullScreenか
 	if (DxLib_Init() == -1)		// ＤＸライブラリ初期化処理

@@ -47,7 +47,7 @@ void Battle::battle() {
 		case 0:
 			DrawString(50 + 100 * SelectBattleCommand, 436, "Z", Cr);
 			DrawString(70, 436, "UŒ‚", Cr);
-			//DrawString(170, 436, "“¹‹ï", Cr);
+			DrawString(170, 436, "“¹‹ï", Cr);
 			//DrawString(270, 436, "•KE‹Z", Cr);
 			//if (Key[KEY_INPUT_RIGHT] == 1) {
 			//	SelectBattleCommand++;

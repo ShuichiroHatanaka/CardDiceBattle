@@ -3,6 +3,7 @@ using namespace Util;
 
 namespace CardFolder {
 	int ViewMode = 0;
+	int P_Mode = 0;
 	int SelectCard = 0;
 	int SelectCommand = 0;
 }
@@ -12,6 +13,9 @@ void CardFolder::ViewCards() {
 	switch (ViewMode) {
 	case 0:
 		if (MenuFlag == 0) {
+			if (Key[KEY_INPUT_RIGHT] == 1 || Key[KEY_INPUT_LEFT] == 1) {
+				P_Mode = (P_Mode + 1) % 2;
+			}
 			if (Key[KEY_INPUT_DOWN] == 1 || (Key[KEY_INPUT_DOWN] >= 40 && Key[KEY_INPUT_DOWN] % 10 == 1)) {
 				SelectCard++;
 				if (SelectCard == Count + 1) {
@@ -52,7 +56,7 @@ void CardFolder::ViewCards() {
 			if (Key[KEY_INPUT_SPACE] == 1) {
 				switch (SelectCommand) {
 				case 0:
-					Player[0] = SelectCard;
+					Player[P_Mode] = SelectCard;
 					if (Key[KEY_INPUT_SPACE] == 1) {
 						ViewMode = 0;
 					}
@@ -89,19 +93,24 @@ void CardFolder::ViewCards() {
 }
 
 void CardFolder::DrawCardList_String(int SelectCard) {
+	DrawFormatString(5, 10, Cr, "P_%dカード選択中", P_Mode + 1);
 	for (int i = 0; i <= Count; i++) {
 		if (i == SelectCard) {
-			DrawFormatString(30, 20 + 20 * i, Cr, "%s", CardList[i]->NN.c_str());
+			DrawFormatString(30, 40 + 20 * i, Cr, "%s", CardList[i]->NN.c_str());
 			DrawCard(300, 50, i);
 		}
 		else {
-			DrawFormatString(10, 20 + 20 * i, Cr, "%s", CardList[i]->NN.c_str());
+			DrawFormatString(10, 40 + 20 * i, Cr, "%s", CardList[i]->NN.c_str());
 		}
 		if (i == Player[0]) {
-			DrawString(190, 20 + 20 * i, "P_1", GetColor(0,191,255));
+			if ((P_Mode == 0 && elapsedTime % 1500 > 750) == FALSE) {
+				DrawString(190, 40 + 20 * i, "P_1", GetColor(0, 191, 255));
+			}
 		}
 		if (i == Player[1]) {
-			DrawString(230, 20 + 20 * i, "P_2", GetColor(255,20,20));
+			if ((P_Mode == 1 && elapsedTime % 1500 > 750) == FALSE) {
+				DrawString(230, 40 + 20 * i, "P_2", GetColor(255, 20, 20));
+			}
 		}
 	}
 }
